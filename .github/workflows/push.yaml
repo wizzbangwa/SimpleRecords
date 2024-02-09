@@ -1,0 +1,57 @@
+name: Tests
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: windows-2019
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v1
+
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v1.0.5
+        
+      - name: Setup VSTest
+        uses: darenm/Setup-VSTest@v1
+
+      - name: Navigate to Workspace
+        run: cd $GITHUB_WORKSPACE
+
+      - name: Restore Packages
+        run: nuget restore GuaranteedRate.Records.sln
+
+      - name: Build GuaranteedRate.Records.Common
+        run: |
+          msbuild.exe GuaranteedRate.Records.Common/GuaranteedRate.Records.Common.csproj -t:"Clean;Build" /p:configuration="Release"
+
+      - name: Build GuaranteedRate.Records.Common.Tests
+        run: |
+          msbuild.exe GuaranteedRate.Records.Common.Tests/GuaranteedRate.Records.Common.Tests.csproj -t:"Clean;Build" /p:configuration="Release"
+
+      - name: Run GuaranteedRate.Records.Common Tests
+        run: vstest.console.exe GuaranteedRate.Records.Common.Tests/bin/Release/GuaranteedRate.Records.Common.Tests.dll
+
+      - name: Build GuaranteedRate.Records.ConsoleApp
+        run: |
+          msbuild.exe GuaranteedRate.Records.ConsoleApp/GuaranteedRate.Records.ConsoleApp.csproj -t:"Clean;Build" /p:configuration="Release"
+
+      - name: Build GuaranteedRate.Records.ConsoleApp.Tests
+        run: |
+          msbuild.exe GuaranteedRate.Records.ConsoleApp.Tests/GuaranteedRate.Records.ConsoleApp.Tests.csproj -t:"Clean;Build" /p:configuration="Release"
+
+      - name: Run GuaranteedRate.Records.ConsoleApp Tests
+        run: vstest.console.exe GuaranteedRate.Records.ConsoleApp.Tests/bin/Release/GuaranteedRate.Records.ConsoleApp.Tests.dll
+
+      - name: Build GuaranteedRate.Records.API
+        run: |
+          msbuild.exe GuaranteedRate.Records.API/GuaranteedRate.Records.API.csproj -t:"Clean;Build" /p:configuration="Release"
+
+      - name: Build GuaranteedRate.Records.API.Tests
+        run: |
+          msbuild.exe GuaranteedRate.Records.API.Tests/GuaranteedRate.Records.API.Tests.csproj -t:"Clean;Build" /p:configuration="Release"
+
+      - name: Run GuaranteedRate.Records.API Tests
+        run: vstest.console.exe GuaranteedRate.Records.API.Tests/bin/Release/GuaranteedRate.Records.API.Tests.dll

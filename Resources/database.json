@@ -1,0 +1,51 @@
+[
+	{
+		"LastName": "Smith",
+		"FirstName": "John",
+		"Email": "john@yahoo.com",
+		"FavoriteColor": "red",
+		"BirthDate": "1985-05-02T00:00:00"
+	},
+	{
+		"LastName": "Doe",
+		"FirstName": "Jane",
+		"Email": "jane@hotmail.com",
+		"FavoriteColor": "blue",
+		"BirthDate": "1995-08-10T00:00:00"
+	},
+	{
+		"LastName": "Wrath",
+		"FirstName": "Fuller",
+		"Email": "wrathful@live.com",
+		"FavoriteColor": "yellow",
+		"BirthDate": "1935-07-15T00:00:00"
+	},
+	{
+		"LastName": "Delta",
+		"FirstName": "Flyer",
+		"Email": "flyer@yahoo.com",
+		"FavoriteColor": "red",
+		"BirthDate": "1975-10-02T00:00:00"
+	},
+	{
+		"LastName": "Dinkelmeyer",
+		"FirstName": "Fanny",
+		"Email": "Dinkelmeyer@yahoo.com",
+		"FavoriteColor": "red",
+		"BirthDate": "1967-05-02T00:00:00"
+	},
+	{
+		"LastName": "Godiva",
+		"FirstName": "Lady",
+		"Email": "godiva@hotmail.com",
+		"FavoriteColor": "orange",
+		"BirthDate": "1982-03-20T00:00:00"
+	},
+	{
+		"LastName": "Silverfish",
+		"FirstName": "Sadie",
+		"Email": "silverfish@live.com",
+		"FavoriteColor": "yellow",
+		"BirthDate": "1943-07-15T00:00:00"
+	}
+]

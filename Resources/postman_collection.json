@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "ab6b63f6-bbdf-4d9b-8ccb-7b5c3df210ae",
+		"name": "Simple Records",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12729304"
+	},
+	"item": [
+		{
+			"name": "Add Record",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "Delta, Flyer, flyer@yahoo.com, red, 10/2/1975"
+				},
+				"url": {
+					"raw": "{{Host}}:{{Port}}/records",
+					"host": [
+						"{{Host}}"
+					],
+					"port": "{{Port}}",
+					"path": [
+						"records"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Records By Color",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Host}}:{{Port}}/records/color",
+					"host": [
+						"{{Host}}"
+					],
+					"port": "{{Port}}",
+					"path": [
+						"records",
+						"color"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Records By Last Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Host}}:{{Port}}/records/name",
+					"host": [
+						"{{Host}}"
+					],
+					"port": "{{Port}}",
+					"path": [
+						"records",
+						"name"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Records By Birth Date",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Host}}:{{Port}}/records/birthdate",
+					"host": [
+						"{{Host}}"
+					],
+					"port": "{{Port}}",
+					"path": [
+						"records",
+						"birthdate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Records Unsorted",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Host}}:{{Port}}/records",
+					"host": [
+						"{{Host}}"
+					],
+					"port": "{{Port}}",
+					"path": [
+						"records"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Host",
+			"value": "https://localhost",
+			"type": "string"
+		},
+		{
+			"key": "Port",
+			"value": "44301",
+			"type": "string"
+		}
+	]
+}
