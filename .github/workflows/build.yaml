@@ -33,48 +33,48 @@ jobs:
         run: cd $GITHUB_WORKSPACE
 
       - name: Restore Packages
-        run: nuget restore GuaranteedRate.Records.sln
+        run: nuget restore SimpleRecords.sln
 
-      - name: Build GuaranteedRate.Records.Common
+      - name: Build SimpleRecords.Common
         run: |
-          msbuild.exe GuaranteedRate.Records.Common/GuaranteedRate.Records.Common.csproj -t:"Clean;Build" /p:"configuration=Release;Version=${{ env.VERSION }}"
+          msbuild.exe SimpleRecords.Common/SimpleRecords.Common.csproj -t:"Clean;Build" /p:"configuration=Release;Version=${{ env.VERSION }}"
 
-      - name: Build GuaranteedRate.Records.Common.Tests
+      - name: Build SimpleRecords.Common.Tests
         run: |
-          msbuild.exe GuaranteedRate.Records.Common.Tests/GuaranteedRate.Records.Common.Tests.csproj -t:"Clean;Build" /p:"configuration=Release;Version=${{ env.VERSION }}"
+          msbuild.exe SimpleRecords.Common.Tests/SimpleRecords.Common.Tests.csproj -t:"Clean;Build" /p:"configuration=Release;Version=${{ env.VERSION }}"
 
-      - name: Run GuaranteedRate.Records.Common Tests
-        run: vstest.console.exe GuaranteedRate.Records.Common.Tests/bin/Release/GuaranteedRate.Records.Common.Tests.dll
+      - name: Run SimpleRecords.Common Tests
+        run: vstest.console.exe SimpleRecords.Common.Tests/bin/Release/SimpleRecords.Common.Tests.dll
 
-      - name: Build GuaranteedRate.Records.ConsoleApp
+      - name: Build SimpleRecords.ConsoleApp
         run: |
-          msbuild.exe GuaranteedRate.Records.ConsoleApp/GuaranteedRate.Records.ConsoleApp.csproj -t:"Clean;Build" /p:"configuration=Release;Version=${{ env.VERSION }}"
+          msbuild.exe SimpleRecords.ConsoleApp/SimpleRecords.ConsoleApp.csproj -t:"Clean;Build" /p:"configuration=Release;Version=${{ env.VERSION }}"
 
-      - name: Build GuaranteedRate.Records.ConsoleApp.Tests
+      - name: Build SimpleRecords.ConsoleApp.Tests
         run: |
-          msbuild.exe GuaranteedRate.Records.ConsoleApp.Tests/GuaranteedRate.Records.ConsoleApp.Tests.csproj -t:"Clean;Build" /p:configuration="Release"
+          msbuild.exe SimpleRecords.ConsoleApp.Tests/SimpleRecords.ConsoleApp.Tests.csproj -t:"Clean;Build" /p:configuration="Release"
 
-      - name: Run GuaranteedRate.Records.ConsoleApp Tests
-        run: vstest.console.exe GuaranteedRate.Records.ConsoleApp.Tests/bin/Release/GuaranteedRate.Records.ConsoleApp.Tests.dll
+      - name: Run SimpleRecords.ConsoleApp Tests
+        run: vstest.console.exe SimpleRecords.ConsoleApp.Tests/bin/Release/SimpleRecords.ConsoleApp.Tests.dll
 
-      - name: Build GuaranteedRate.Records.API
+      - name: Build SimpleRecords.API
         run: |
-          msbuild.exe GuaranteedRate.Records.API/GuaranteedRate.Records.API.csproj -t:"Clean;Build" /p:"configuration=Release;Version=${{ env.VERSION }}"
+          msbuild.exe SimpleRecords.API/SimpleRecords.API.csproj -t:"Clean;Build" /p:"configuration=Release;Version=${{ env.VERSION }}"
 
-      - name: Build GuaranteedRate.Records.API.Tests
+      - name: Build SimpleRecords.API.Tests
         run: |
-          msbuild.exe GuaranteedRate.Records.API.Tests/GuaranteedRate.Records.API.Tests.csproj -t:"Clean;Build" /p:configuration="Release"
+          msbuild.exe SimpleRecords.API.Tests/SimpleRecords.API.Tests.csproj -t:"Clean;Build" /p:configuration="Release"
 
-      - name: Run GuaranteedRate.Records.API Tests
-        run: vstest.console.exe GuaranteedRate.Records.API.Tests/bin/Release/GuaranteedRate.Records.API.Tests.dll
+      - name: Run SimpleRecords.API Tests
+        run: vstest.console.exe SimpleRecords.API.Tests/bin/Release/SimpleRecords.API.Tests.dll
 
       - name: Pack Console App
         run: |
-          7z a -tzip "./zip/GuaranteedRate.Records.ConsoleApp_${{ env.VERSION }}.zip" "./GuaranteedRate.Records.ConsoleApp/bin/Release/*"
+          7z a -tzip "./zip/SimpleRecords.ConsoleApp_${{ env.VERSION }}.zip" "./SimpleRecords.ConsoleApp/bin/Release/*"
       
       - name: Pack REST API
         run: |
-          7z a -tzip "./zip/GuaranteedRate.Records.API_${{ env.VERSION }}.zip" "./GuaranteedRate.Records.API/bin/*"
+          7z a -tzip "./zip/SimpleRecords.API_${{ env.VERSION }}.zip" "./SimpleRecords.API/bin/*"
 
       - name: Pack Resources
         run: |
